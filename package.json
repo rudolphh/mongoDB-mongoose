@@ -9,6 +9,7 @@
 	"dependencies": {
 		"express": "^4.12.4",
 		"body-parser": "^1.15.2",
+		"dotenv": "^4.0.0",
 		"mongodb": "^2.2.26",
 		"mongoose": "^4.9.5"
 	},
