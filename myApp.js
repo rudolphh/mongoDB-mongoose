@@ -142,7 +142,7 @@ var arrayOfPeople = [
 ];
 
 //var createManyPeople = function(arrayOfPeople, done) {
-
+/*
   Person.create(arrayOfPeople, function(err, data){
     if(err){
       console.log(err);
@@ -150,7 +150,7 @@ var arrayOfPeople = [
       console.log(data);
     }
   });
-
+*/
 
     // done(null/*, data*/);
 
@@ -167,11 +167,18 @@ var arrayOfPeople = [
 // It supports an extremely wide range of search options. Check it in the docs.
 // Use the function argument `personName` as search key.
 
-var findPeopleByName = function(personName, done) {
+var personName = 'Lily';
 
-  done(null/*, data*/);
+// var findPeopleByName = function(personName, done) {
 
-};
+  Person.find({ name: personName }, function(err, person){
+    if(err){ console.log(err); }
+    else { console.log(person); }
+  });
+
+  // done(null/*, data*/);
+
+// };
 
 /** 6) Use `Model.findOne()` */
 
@@ -327,14 +334,16 @@ var queryChain = function(done) {
 
 //----- **DO NOT EDIT BELOW THIS LINE** ----------------------------------
 
+/*
 exports.PersonModel = Person;
-//exports.createAndSavePerson = createAndSavePerson;
+exports.createAndSavePerson = createAndSavePerson;
 exports.findPeopleByName = findPeopleByName;
 exports.findOneByFood = findOneByFood;
 exports.findPersonById = findPersonById;
 exports.findEditThenSave = findEditThenSave;
 exports.findAndUpdate = findAndUpdate;
-//exports.createManyPeople = createManyPeople;
+exports.createManyPeople = createManyPeople;
 exports.removeById = removeById;
 exports.removeManyPeople = removeManyPeople;
 exports.queryChain = queryChain;
+*/
