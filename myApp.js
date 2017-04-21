@@ -320,6 +320,7 @@ var personId = "58fa55265b7bf734a61df2f5";
 
 // var removeById = function(personId, done) {
 
+/*
   Person.findByIdAndRemove(personId, function(err, person){
     if(err) { console.log (err); }
     else {
@@ -330,6 +331,7 @@ var personId = "58fa55265b7bf734a61df2f5";
       }
     }
   });
+*/
 
   // done(null/*, data*/);
 
@@ -345,11 +347,19 @@ var personId = "58fa55265b7bf734a61df2f5";
 // containing the outcome of the operation, and the number of items affected.
 // Don't forget to pass it to the `done()` callback, since we use it in tests.
 
-var removeManyPeople = function(done) {
+// var removeManyPeople = function(done) {
   var nameToRemove = "Mary";
 
-  done(null/*, data*/);
-};
+  Person.remove({ name: nameToRemove }, function(err, res){
+    if(err) { console.log(err); }
+    else {
+      console.log(res.result.n);// for fcc just return the res object
+    }
+  });
+
+
+  // done(null/*, data*/);
+// };
 
 /** # C[R]UD part V -  More about Queries #
 /*  ======================================= */
