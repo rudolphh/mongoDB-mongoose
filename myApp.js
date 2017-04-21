@@ -95,6 +95,7 @@ var Person = mongoose.model('Person', personSchema); /* = <Your Model> */
 
 
 // var createAndSavePerson = function(done) {
+/*
   var person = new Person({
     name: 'Rudy',
     age: 34,
@@ -108,6 +109,8 @@ var Person = mongoose.model('Person', personSchema); /* = <Your Model> */
       console.log(data);
     }
   });
+  */
+
 //};
 
 /** 4) Create many People with `Model.create()` */
@@ -119,11 +122,39 @@ var Person = mongoose.model('Person', personSchema); /* = <Your Model> */
 // Create many people using `Model.create()`, using the function argument
 // 'arrayOfPeople'.
 
-var createManyPeople = function(arrayOfPeople, done) {
+var arrayOfPeople = [
+  {
+    name: 'Madison',
+    age: 13,
+    favoriteFoods: ['pizza', 'broccoli', 'chips']
+  },
+  {
+    name: 'Chloe',
+    age: 9,
+    favoriteFoods: ['pasta', 'chocolate', 'ice cream']
+  },
+  {
+    name: 'Lily',
+    age: 2,
+    favoriteFoods: ['french fries', 'chicken', 'candy']
+  }
+
+];
+
+//var createManyPeople = function(arrayOfPeople, done) {
+
+  Person.create(arrayOfPeople, function(err, data){
+    if(err){
+      console.log(err);
+    } else {
+      console.log(data);
+    }
+  });
+
 
     // done(null/*, data*/);
 
- };
+ //};
 
 /** # C[R]UD part II - READ #
 /*  ========================= */
@@ -303,7 +334,7 @@ exports.findOneByFood = findOneByFood;
 exports.findPersonById = findPersonById;
 exports.findEditThenSave = findEditThenSave;
 exports.findAndUpdate = findAndUpdate;
-exports.createManyPeople = createManyPeople;
+//exports.createManyPeople = createManyPeople;
 exports.removeById = removeById;
 exports.removeManyPeople = removeManyPeople;
 exports.queryChain = queryChain;
