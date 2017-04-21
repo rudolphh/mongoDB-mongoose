@@ -195,12 +195,14 @@ var food = 'candy';
 // var findOneByFood = function(food, done) {
 
   // remember optional second argument (making callback 3rd to select fields returned
+  /*
   Person.findOne({ favoriteFoods: food }, function(err, person){
     if(err){ console.log(err); }
     else {
       console.log(person);
     }
   });
+  */
 
   // done(null/*, data*/);
 
@@ -215,11 +217,20 @@ var food = 'candy';
 // using `Model.findById() -> Person`.
 // Use the function argument 'personId' as search key.
 
-var findPersonById = function(personId, done) {
+var personId = "58fa55265b7bf734a61df2f5";
+// var findPersonById = function(personId, done) {
 
-  done(null/*, data*/);
+  Person.findById(personId, function(err, person){
+    if(err){ console.log(err); }
+    else {
+      console.log(person);
+    }
+  })
 
-};
+
+//  done(null/*, data*/);
+
+// };
 
 /** # CR[U]D part III - UPDATE #
 /*  ============================ */
