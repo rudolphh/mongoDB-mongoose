@@ -349,14 +349,14 @@ var personId = "58fa55265b7bf734a61df2f5";
 
 // var removeManyPeople = function(done) {
   var nameToRemove = "Mary";
-
+/*
   Person.remove({ name: nameToRemove }, function(err, res){
     if(err) { console.log(err); }
     else {
       console.log(res.result.n);// for fcc just return the res object
     }
   });
-
+*/
 
   // done(null/*, data*/);
 // };
@@ -379,11 +379,20 @@ var personId = "58fa55265b7bf734a61df2f5";
 // Chain `.find()`, `.sort()`, `.limit()`, `.select()`, and then `.exec()`,
 // passing the `done(err, data)` callback to it.
 
-var queryChain = function(done) {
+// var queryChain = function(done) {
   var foodToSearch = "burrito";
 
-  done(null/*, data*/);
-};
+  Person.find({ favoriteFoods: foodToSearch }).sort({ name: 1 }).limit(2)
+        .select('-age').exec(function(err, persons){
+          if(err){ console.log(err); }
+          else {
+            console.log(persons);
+          }
+        });
+
+
+  // done(null/*, data*/);
+// };
 
 /** **Well Done !!**
 /* You completed these challenges, let's go celebrate !
