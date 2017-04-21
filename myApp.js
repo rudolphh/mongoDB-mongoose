@@ -260,6 +260,7 @@ var personId = "58fa55265b7bf734a61df2f5";
 // var findEditThenSave = function(personId, done) {
   var foodToAdd = 'hamburger';
 
+/*
   Person.findById(personId, function(err, person){
     if(err){ console.log(err); }
     else {
@@ -271,7 +272,8 @@ var personId = "58fa55265b7bf734a61df2f5";
         }
       });
     }
-  })
+  });
+  */
 
   // done(null/*, data*/);
 // };
@@ -291,11 +293,20 @@ var personId = "58fa55265b7bf734a61df2f5";
 // to `findOneAndUpdate()`. By default the method
 // passes the unmodified object to its callback.
 
-var findAndUpdate = function(personName, done) {
-  var ageToSet = 20;
+// var findAndUpdate = function(personName, done) {
+  var ageToSet = 21;
 
-  done(null/*, data*/);
-};
+// you can use { age: ageToSet }, but will be sent as { $set: { age: ageToSet } }
+  Person.findOneAndUpdate({ name: personName }, { $set: { age: ageToSet }  }, { new: true }, function(err, person){
+    if(err) { console.log(err); }
+    else {
+      console.log(person)
+    }
+  });
+
+
+  // done(null/*, data*/);
+// };
 
 /** # CRU[D] part IV - DELETE #
 /*  =========================== */
