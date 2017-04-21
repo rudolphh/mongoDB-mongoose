@@ -219,14 +219,14 @@ var food = 'candy';
 
 var personId = "58fa55265b7bf734a61df2f5";
 // var findPersonById = function(personId, done) {
-
+/*
   Person.findById(personId, function(err, person){
     if(err){ console.log(err); }
     else {
       console.log(person);
     }
   })
-
+*/
 
 //  done(null/*, data*/);
 
@@ -257,11 +257,24 @@ var personId = "58fa55265b7bf734a61df2f5";
 // manually mark it as edited using `document.markModified('edited-field')`
 // (http://mongoosejs.com/docs/schematypes.html - #Mixed )
 
-var findEditThenSave = function(personId, done) {
+// var findEditThenSave = function(personId, done) {
   var foodToAdd = 'hamburger';
 
-  done(null/*, data*/);
-};
+  Person.findById(personId, function(err, person){
+    if(err){ console.log(err); }
+    else {
+      person.favoriteFoods.push(foodToAdd);
+      person.save().then(function(err, res){
+        if(err) { console.log(err); }
+        else {
+          console.log(person);
+        }
+      });
+    }
+  })
+
+  // done(null/*, data*/);
+// };
 
 /** 9) New Update : Use `findOneAndUpdate()` */
 
