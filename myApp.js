@@ -295,7 +295,7 @@ var personId = "58fa55265b7bf734a61df2f5";
 
 // var findAndUpdate = function(personName, done) {
   var ageToSet = 21;
-
+/*
 // you can use { age: ageToSet }, but will be sent as { $set: { age: ageToSet } }
   Person.findOneAndUpdate({ name: personName }, { $set: { age: ageToSet }  }, { new: true }, function(err, person){
     if(err) { console.log(err); }
@@ -303,7 +303,7 @@ var personId = "58fa55265b7bf734a61df2f5";
       console.log(person)
     }
   });
-
+*/
 
   // done(null/*, data*/);
 // };
@@ -318,11 +318,22 @@ var personId = "58fa55265b7bf734a61df2f5";
 // previous update methods. They pass the removed document to the cb.
 // As usual, use the function argument `personId` as search key.
 
-var removeById = function(personId, done) {
+// var removeById = function(personId, done) {
 
-  done(null/*, data*/);
+  Person.findByIdAndRemove(personId, function(err, person){
+    if(err) { console.log (err); }
+    else {
+      if(person){
+        console.log(person);
+      } else {
+        console.log('no person by that id was found');
+      }
+    }
+  });
 
-};
+  // done(null/*, data*/);
+
+// };
 
 /** 11) Delete many People */
 
